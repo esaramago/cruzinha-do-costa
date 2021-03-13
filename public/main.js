@@ -1,7 +1,7 @@
 const App = {
     MAX_RT: 2,
     MAX_CASES: 240,
-    rt: 0.71,
+    rt: 0.8,
     cases: null,
 
     _setCases() {
