@@ -1,0 +1,114 @@
+
+/* VARIABLES */
+:root {
+    --gap-basis: .8rem;
+}
+
+/* ELEMENTS */
+html,
+body {
+    height: 100%;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    box-sizing: border-box;
+    margin: 0;
+    background-color: #1971b9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFF;
+    line-height: .8;
+    min-width: 32rem;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+
+.c-board {
+    position: relative;
+    aspect-ratio: 7 / 5;
+    width: 100%;
+    max-width: 78rem;
+    /* max-height: calc(100% - 14vw); */
+    margin: 2rem max(6rem, 14vw) 10vw;
+
+    font-weight: 500;
+}
+
+.c-board__container {
+    position: relative;
+    height: 100%;
+}
+.c-board__inner {
+
+    height: 100%;
+
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+
+    font-size: clamp(3rem, 6vw, 6rem);
+}
+.c-board__quadrant {
+    padding: 12%;
+    background: #ff9722;
+    background: linear-gradient(45deg, #ffe12f 20%, #ff5210 90%);
+}
+.c-board__quadrant::before {
+    content: attr(data-number);
+}
+.c-board__quadrant:nth-child(3) {
+    background: #48b782;
+    background: linear-gradient(45deg, rgba(124,213,159,1) 40%, rgba(0,114,71,1) 80%);
+}
+.c-board__quadrant:nth-child(2) {
+    background: #ff1a1d;
+}
+
+
+.c-board__axis {
+    --margin: 2rem;
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+}
+.c-board__axis.--x {
+    top: 100%;
+    width: 100%;
+    margin-top: var(--margin);
+}
+.c-board__axis.--y {
+    right: 100%;
+    height: 98%;
+    margin-right: var(--margin);
+}
+.c-board__axis.--zero {
+    top: 100%;
+    right: 100%;
+    margin-top: var(--margin);
+    margin-right: var(--margin);
+}
+
+@media (max-width: 60rem) {
+    .c-board__axis {
+        --margin: 1rem;
+    }
+}
+
+
+.c-board__cruzinha {
+    position: absolute;
+    font-size: clamp(3rem, 7vw, 7rem);
+    bottom: 0;
+    left: 0;
+}
