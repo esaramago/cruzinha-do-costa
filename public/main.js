@@ -15,28 +15,41 @@ const App = {
     _getXPosition() {
         return (this.rt * 93.5) / this.MAX_RT + '%';
     },
-    _getData() {
-        //const url = "https://covid19-api.org/api/timeline/pt";
-
-        const today = new Date();
-        const startDate = new Date().setDate(today.getDate() - 14);
-        const startDateStr = this._getFormatedDate(new Date(startDate));
-        const endDateStr = this._getFormatedDate(today);
+    _getData(dates) {
+        const startDateStr = this._getFormatedDate(dates.startDate);
+        const endDateStr = this._getFormatedDate(dates.endDate);
         const url = `https://covid19-api.vost.pt/Requests/get_entry/${startDateStr}_until_${endDateStr}`;
 
+        let prevDays = 0;
         fetch(url)
             .then(response => response.json())
             .then(commits => {
 
-                //const lastDayCases = commits[0].cases;
-                //const previousDayCases = commits[13].cases;
                 const lastDayCases = commits.confirmados[Object.keys(commits.confirmados)[13]];
                 const previousDayCases = commits.confirmados[Object.keys(commits.confirmados)[0]];
                 this.cases = this._calculateCases(lastDayCases, previousDayCases);
+                
                 this._setPosition();
 
+            }).catch(err => {
+                // if it doensn't find data, try previous days
+                if (prevDays <= 5) {
+                    prevDays ++;
+                    var dates = this._getDates(prevDays);
+                    this._getData(dates);
+                }
             });
 
+    },
+    _getDates(prevDays = 0) {
+        const daysRange = 14;
+        const today = new Date();
+        const startDate = new Date().setDate(today.getDate() - daysRange - prevDays);
+        const endDate = new Date().setDate(today.getDate() - prevDays);
+        return dates = {
+            startDate: new Date(startDate),
+            endDate: new Date(endDate)
+        }
     },
     _calculateCases(lastDayCases, previousDayCases) {
         const newCases = lastDayCases - previousDayCases;
@@ -63,7 +76,9 @@ const App = {
 
     init() {
         this._setCases();
-        this._getData();
+
+        const dates = this._getDates();
+        this._getData(dates);
     }
 }
 
