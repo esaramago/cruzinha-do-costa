@@ -22,20 +22,30 @@ body {
     min-width: 32rem;
 }
 main {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100%;
+    padding: 2rem max(6rem, 14vw) 10vw;
 }
 
 
+.c-info {
+    fill: #FFF;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
 .c-board {
+    flex: 1;
     position: relative;
     aspect-ratio: 7 / 5;
-    width: 100%;
-    max-width: 78rem;
-    /* max-height: calc(100% - 14vw); */
-    margin: 2rem max(6rem, 14vw) 10vw;
+    /* width: 100%; */
+    /* max-width: 78rem; */
+    max-height: calc(100% - 14vw);
+    /* margin: 2rem max(6rem, 14vw) 10vw; */
 
     font-weight: 500;
 }
@@ -111,4 +121,10 @@ main {
     font-size: clamp(3rem, 7vw, 7rem);
     bottom: 0;
     left: 0;
+}
+
+
+.is-visually-hidden {
+    position: absolute;
+    text-indent: -9999em;
 }
