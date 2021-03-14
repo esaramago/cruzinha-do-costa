@@ -1,1 +1,4 @@
-﻿npm ci && npm run build
+﻿
+[Com base no gráfico apresentado pelo Primeiro Ministro de Portugal António Costa.](https://www.publico.pt/2021/03/12/sociedade/noticia/verde-amarelo-vermelho-funciona-semaforo-controla-ritmo-desconfinamento-1954102)
+
+[Firestore Database](https://console.firebase.google.com/project/cruzinhadocosta/firestore/)
