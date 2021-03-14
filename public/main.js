@@ -87,7 +87,7 @@ const App = {
     _getRT() {
 
         // https://console.firebase.google.com/project/cruzinhadocosta/firestore/
-        const db = firebase.initializeApp({ projectId: "cruzinhadocosta" }).firestore();
+        const db = this.firebase.firestore();
 
         db.collection("rt").get()
             .then(snapshot => {
@@ -100,14 +100,29 @@ const App = {
             })
     },
 
+    _initializeFirebase() {
+        this.firebase = firebase.initializeApp({
+            apiKey: "AIzaSyA0zCOtlm13rOxVrElzN9lmjObpr1Qateg",
+            projectId: "cruzinhadocosta",
+            appId: "1:420331082067:web:1d120775dd53e3858211a6"
+        })
+    },
+    _startAnalytics() {
+        this.firebase.analytics();
+    },
+
     // INIT
     init() {
         this._setCases();
+
+        this._initializeFirebase();
 
         this._getRT();
 
         const dates = this._getDates();
         this._getCases(dates);
+
+        this._startAnalytics();
     }
 }
 
