@@ -42,10 +42,9 @@ main {
     flex: 1;
     position: relative;
     aspect-ratio: 7 / 5;
-    /* width: 100%; */
-    /* max-width: 78rem; */
+    width: 100%;
+    max-width: 55rem;
     max-height: calc(100% - 14vw);
-    /* margin: 2rem max(6rem, 14vw) 10vw; */
 
     font-weight: 500;
 }
