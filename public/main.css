@@ -89,7 +89,7 @@ main {
     align-items: center;
     justify-content: center;
 
-    font-size: clamp(3rem, 7vw, 7rem);
+    font-size: clamp(2rem, 6vw, 6rem);
 }
 .c-board__axis.--x {
     top: 100%;
@@ -117,9 +117,11 @@ main {
 
 .c-board__cruzinha {
     position: absolute;
-    font-size: clamp(3rem, 7vw, 7rem);
+    font-size: clamp(2rem, 6vw, 6rem);
     bottom: 0;
     left: 0;
+    margin-left: -1.4vw;
+    margin-bottom: -1.6vw;
 }
 
 
