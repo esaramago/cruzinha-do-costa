@@ -3,6 +3,7 @@ const App = {
     MAX_CASES: 240,
     rt: null,
     cases: null,
+    previousDays: 0, // if it doesn't find data from today, adds one day before
 
 
     // GET CASES
@@ -22,7 +23,6 @@ const App = {
         const endDateStr = this._getFormatedDate(dates.endDate);
         const url = `https://covid19-api.vost.pt/Requests/get_entry/${startDateStr}_until_${endDateStr}`;
 
-        let prevDays = 0;
         fetch(url)
             .then(response => response.json())
             .then(commits => {
@@ -34,10 +34,10 @@ const App = {
                 this._setPosition("y");
 
             }).catch(err => {
-                // if it doensn't find data, try previous days
-                if (prevDays <= 5) {
-                    prevDays ++;
-                    var dates = this._getDates(prevDays);
+                // if it doesn't find data, try previous days
+                if (this.previousDays <= 5) {
+                    this.previousDays ++;
+                    var dates = this._getDates(this.previousDays);
                     this._getCases(dates);
                 }
             });
