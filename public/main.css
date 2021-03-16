@@ -58,11 +58,11 @@ main {
     height: 100%;
 
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: .5rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 
-    font-size: clamp(3rem, 6vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 5rem);
 }
 .c-board__quadrant {
     padding: 12%;
@@ -89,7 +89,7 @@ main {
     align-items: center;
     justify-content: center;
 
-    font-size: clamp(2rem, 6vw, 6rem);
+    font-size: clamp(2.5rem, 5vw, 5rem);
 }
 .c-board__axis.--x {
     top: 100%;
