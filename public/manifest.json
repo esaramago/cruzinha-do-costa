@@ -1,0 +1,16 @@
+﻿{
+    "name": "Cruzinha do Costa",
+    "short_name": "Cruzinha do Costa",
+    "theme_color": "#1971b9",
+    "lang": "pt",
+    "description": "",
+    "icons": [
+        {
+            "src": "./img/icon-144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone"
+}
