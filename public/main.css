@@ -64,6 +64,12 @@ main {
 
     font-size: clamp(2.5rem, 5vw, 5rem);
 }
+@media (max-width: 60rem) {
+    .c-board__inner {
+        grid-gap: .2rem;
+    }
+}
+
 .c-board__quadrant {
     padding: 12%;
     background: #ff9722;

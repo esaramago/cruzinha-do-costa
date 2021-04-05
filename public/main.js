@@ -16,7 +16,7 @@ const App = {
         return (this.cases * 90) / this.MAX_CASES + "%";
     },
     _getXPosition() {
-        return (this.rt * 93.5) / this.MAX_RT + "%";
+        return (this.rt * 99) / this.MAX_RT + "%";
     },
     _getCases(dates) {
         const startDateStr = this._getFormatedDate(dates.startDate);
